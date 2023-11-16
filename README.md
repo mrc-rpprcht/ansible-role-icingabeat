@@ -34,10 +34,11 @@ Example Playbook
 ----------------
 Here is a working example playbook that rolls out the role together with the Ansible Collection icinga:
 
+```yaml
 - name: Installation of Icinga, Icinga Web and Icinga DB
   hosts: all
   become: yes
-  # The "vars" section contains all variables required by the collection / roles.
+  # The "vars" section contains all variables required by the collection / roles
   vars:
       # Variables for MySQL (on Ubuntu 22.04 Server LTS) and icinga.repos (pre-tasks)
       mysql_innodb_file_format: barracuda
@@ -63,7 +64,7 @@ Here is a working example playbook that rolls out the role together with the Ans
       icinga_repo_stable: true
       icinga_repo_testing: false
       icinga_repo_snapshot: false
-  
+
       # Variables for Icinga, Icinga DB and Icinga DB Redis (tasks)
       icinga2_confd: true
       icinga2_features:
@@ -203,7 +204,7 @@ Here is a working example playbook that rolls out the role together with the Ans
     - name: Install monitoring plugins
       ansible.builtin.include_role:
         name: icinga.icinga.monitoring_plugins
-
+```
 
 License
 -------

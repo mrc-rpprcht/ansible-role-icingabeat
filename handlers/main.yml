@@ -1,0 +1,8 @@
+---
+# Handler for Icingabeat
+
+- name: Restart Icingabeat
+  ansible.builtin.service:
+    name: "{{ icingabeat_service }}"
+    state: restarted
+    enabled: yes

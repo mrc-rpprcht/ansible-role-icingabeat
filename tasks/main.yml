@@ -1,0 +1,25 @@
+---
+# All tasks that need to be performed to install and configure Icingabeat
+
+- name: Include OS-specific variables
+  ansible.builtin.include_vars: "{{ ansible_os_family }}.yml"
+
+- name: Install Icingabeat
+  ansible.builtin.package:
+    name: "{{ icingabeat_package }}"
+    state: present
+
+- name: Configure Icingabeat
+  ansible.builtin.template:
+    src: icingabeat.yml.j2
+    dest: /etc/icingabeat/icingabeat.yml
+    owner: root
+    group: root
+    mode: '0640'
+  notify: Restart Icingabeat
+  
+- name: Ensure Icingabeat service is enabled and running
+  ansible.builtin.service:
+    name: "{{ icingabeat_service }}"
+    state: started
+    enabled: yes

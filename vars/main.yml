@@ -1,0 +1,6 @@
+---
+# Standardvariablen für alle Betriebssysteme
+
+
+# There are currently no cross-OS variables that are used.
+# However, since main.yml is part of the standard of every role, it remains as an empty file of the role.

@@ -1,0 +1,22 @@
+---
+# Default variables for the configuration of Icingabeat
+icingabeat_host: "icinga"
+icingabeat_port: "5665"
+icingabeat_user: "icingabeat"
+icingabeat_password: "icingabeat"
+icingabeat_ca_path: "/var/lib/icinga2/certs/ca.crt"
+
+
+elasticsearch_hosts: "elastic:9200"
+elasticsearch_protocol: "https"
+elasticsearch_ca_path: "/etc/ssl/certs/elastic.crt"
+elasticsearch_username: "elastic"
+elasticsearch_password: "changeme"
+
+
+kibana_host: "elastic:5601"
+
+# Optional variables to adjust the default values defined in the template section
+# eventstream_filter: ""
+# eventstream_retry_interval: "10s"
+# statuspoller_interval: "60s"

@@ -1,0 +1,38 @@
+icingabeat:
+  host: "{{ icingabeat_host }}"
+  port: "{{ icingabeat_port }}"
+  user: "{{ icingabeat_user }}"
+  password: "{{ icingabeat_password }}"
+  ssl:
+    verify: true
+    certificate_authorities: ["{{ icingabeat_ca_path }}"]
+  eventstream:
+    types:
+      - CheckResult
+      - StateChange
+      - Notification
+      - AcknowledgementSet
+      - AcknowledgementCleared
+      - CommentAdded
+      - CommentRemoved
+      - DowntimeAdded
+      - DowntimeRemoved
+      - DowntimeStarted
+      - DowntimeTriggered
+    filter: "{{ eventstream_filter | default('') }}"
+    retry_interval: "{{ eventstream_retry_interval | default('10s') }}"
+  statuspoller:
+    interval: "{{ statuspoller_interval | default('60s') }}"
+output.elasticsearch:
+  hosts: ["{{ elasticsearch_hosts }}"]
+  protocol: "{{ elasticsearch_protocol | default('https') }}"
+  ssl:
+    certificate_authorities: ["{{ elasticsearch_ca_path }}"]
+  username: "{{ elasticsearch_username }}"
+  password: "{{ elasticsearch_password }}"
+setup:
+  dashboards:
+    enabled: "{{ setup_dashboards_enabled | default(true) }}"
+  kibana:
+    host: "{{ kibana_host }}"
+logging.metrics.enabled: false

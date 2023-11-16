@@ -1,0 +1,4 @@
+---
+# Debian/Ubuntu specific variables
+icingabeat_package: icingabeat
+icingabeat_service: icingabeat

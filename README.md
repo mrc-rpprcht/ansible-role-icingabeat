@@ -1,7 +1,7 @@
 Ansible Role Icingabeat
 =========
 
-An easy to use Ansible Role to intsall and configure Icingabeat.
+An easy to use Ansible Role to install and configure Icingabeat.
 
 Requirements
 ------------
